@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Оптимизация ПК для Fortnite — больше FPS, меньше задержка</title>
+<style>
+:root{--bg:#0d0f1a;--card:#161a2b;--text:#eef0ff;--muted:#9aa1c3;--acc:#7c5cff;--acc2:#00e0b8;--bad:#ff5c7c;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f4f5fb;--card:#fff;--text:#12152a;--muted:#5a6080}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.55}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+header{padding:70px 0 40px;text-align:center}
+h1{font-size:clamp(30px,6vw,52px);margin:0 0 12px;line-height:1.1}
+h1 span{background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
+p.lead{color:var(--muted);max-width:620px;margin:0 auto 26px;font-size:18px}
+.btn{display:inline-block;padding:13px 24px;border-radius:12px;background:var(--acc);color:#fff;text-decoration:none;font-weight:600;border:0;cursor:pointer;font-size:16px;margin:4px}
+.btn.alt{background:transparent;border:2px solid var(--acc2);color:var(--acc2)}
+section{padding:40px 0}
+h2{font-size:30px;margin:0 0 6px}
+.sub{color:var(--muted);margin:0 0 24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.card{background:var(--card);border-radius:16px;padding:20px;border:1px solid rgba(124,92,255,.2)}
+.card h3{margin:0 0 6px;font-size:18px}.card p{margin:0;color:var(--muted)}
+.big{font-size:36px;font-weight:800;color:var(--acc2)}
+.bar{margin:14px 0}.bar b{display:flex;justify-content:space-between;font-size:14px;margin-bottom:5px}
+.track{background:rgba(128,128,160,.2);border-radius:8px;height:16px;overflow:hidden}
+.fill{height:100%;border-radius:8px;width:0;transition:width 1s}
+.before{background:var(--bad)}.after{background:var(--acc2)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.tab{padding:9px 16px;border-radius:10px;border:1px solid var(--acc);background:transparent;color:var(--text);cursor:pointer;font-size:15px}
+.tab.on{background:var(--acc);color:#fff}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:520px}
+th,td{padding:12px;text-align:left;border-bottom:1px solid rgba(128,128,160,.25)}
+th{color:var(--muted);font-weight:600}
+td.y{color:var(--acc2);font-weight:700}td.n{color:var(--bad)}
+.opt{display:block;width:100%;text-align:left;margin:8px 0;padding:12px 14px;border-radius:10px;border:1px solid rgba(128,128,160,.35);background:transparent;color:var(--text);cursor:pointer;font-size:16px}
+.opt:hover{border-color:var(--acc)}
+.prog{height:6px;background:rgba(128,128,160,.2);border-radius:4px;margin-bottom:16px}.prog i{display:block;height:100%;background:var(--acc);border-radius:4px;width:0;transition:width .3s}
+.note{font-size:13px;color:var(--muted);margin-top:10px}
+.steps{counter-reset:s}.steps .card::before{counter-increment:s;content:counter(s);display:block;font-size:30px;font-weight:800;color:var(--acc)}
+.contacts{text-align:center}
+footer{text-align:center;color:var(--muted);padding:30px 0;font-size:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Оптимизация ПК для <span>Fortnite</span></h1>
+  <p class="lead">Больше FPS, плавная картинка и минимальная задержка ввода. Настраиваю систему под игру — от 60 до 200+ FPS.</p>
+  <a class="btn" href="https://t.me/uncrownedking666" target="_blank" rel="noopener">Написать в Telegram</a>
+  <a class="btn alt" href="#test">Пройти тест</a>
+</header>
+
+<section id="about">
+  <h2>Почему мне можно доверять</h2>
+  <p class="sub">Fortnite — это не просто игра, а моя жизнь.</p>
+  <div class="grid">
+    <div class="card"><div class="big">14 000+</div><p>часов в Fortnite</p></div>
+    <div class="card"><div class="big">С 6 лет</div><p>играю с самого детства</p></div>
+    <div class="card"><div class="big">🏆</div><p>победы в турнирах</p></div>
+  </div>
+</section>
+
+<section id="compare">
+  <h2>Сравнение: до и после</h2>
+  <p class="sub">Выбери показатель и посмотри разницу.</p>
+  <div class="tabs" id="tabs"></div>
+  <div class="card" id="bars"></div>
+  <p class="note">Значения примерные. Замени их на свои реальные замеры в массиве DATA в коде страницы.</p>
+</section>
+
+<section id="table">
+  <h2>Сравнение вариантов</h2>
+  <p class="sub">Что ты получаешь при разных подходах.</p>
+  <div class="card tw">
+    <table>
+      <tr><th></th><th>Без оптимизации</th><th>Самостоятельно</th><th>Моя оптимизация</th></tr>
+      <tr><td>Прирост FPS</td><td class="n">нет</td><td>небольшой</td><td class="y">максимальный</td></tr>
+      <tr><td>Задержка ввода</td><td class="n">высокая</td><td>средняя</td><td class="y">минимальная</td></tr>
+      <tr><td>Стабильность кадров</td><td class="n">просадки</td><td>частично</td><td class="y">ровная</td></tr>
+      <tr><td>Риск навредить системе</td><td class="y">нет</td><td class="n">есть</td><td class="y">нет</td></tr>
+      <tr><td>Затраченное время</td><td class="y">0</td><td class="n">часы поиска</td><td class="y">быстро</td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="test">
+  <h2>Тест: нужна ли тебе оптимизация?</h2>
+  <p class="sub">5 вопросов — и ты узнаешь результат.</p>
+  <div class="card" id="quiz"></div>
+</section>
+
+<section id="how">
+  <h2>Как это работает</h2>
+  <div class="grid steps">
+    <div class="card"><h3>Пишешь мне</h3><p>Рассказываешь про свой ПК и текущий FPS.</p></div>
+    <div class="card"><h3>Настройка</h3><p>Настраиваю систему, драйверы и параметры игры.</p></div>
+    <div class="card"><h3>Проверка</h3><p>Делаем замеры и сравниваем с тем, что было.</p></div>
+  </div>
+</section>
+
+<section id="contacts" class="contacts">
+  <h2>Контакты</h2>
+  <p class="sub">Пиши — отвечу и подскажу, что можно улучшить.</p>
+  <a class="btn" href="https://t.me/uncrownedking666" target="_blank" rel="noopener">Мой Telegram: @uncrownedking666</a>
+  <a class="btn alt" href="https://t.me/hjdhcr" target="_blank" rel="noopener">Telegram-канал: t.me/hjdhcr</a>
+</section>
+<footer>© 2026 Оптимизация ПК для Fortnite</footer>
+</div>
+
+<script>
+const DATA={
+ "FPS":{unit:"FPS",before:60,after:200,max:240},
+ "Задержка ввода":{unit:"мс",before:45,after:12,max:60},
+ "1% low FPS":{unit:"FPS",before:28,after:130,max:160},
+ "Загрузка CPU":{unit:"%",before:95,after:62,max:100}
+};
+const tabs=document.getElementById('tabs'),bars=document.getElementById('bars');
+function show(k){
+ [...tabs.children].forEach(b=>b.classList.toggle('on',b.textContent===k));
+ const d=DATA[k];
+ bars.innerHTML=`<div class="bar"><b><span>До оптимизации</span><span>${d.before} ${d.unit}</span></b><div class="track"><div class="fill before" data-w="${d.before/d.max*100}"></div></div></div>
+ <div class="bar"><b><span>После оптимизации</span><span>${d.after} ${d.unit}</span></b><div class="track"><div class="fill after" data-w="${d.after/d.max*100}"></div></div></div>`;
+ requestAnimationFrame(()=>setTimeout(()=>bars.querySelectorAll('.fill').forEach(f=>f.style.width=f.dataset.w+'%'),20));
+}
+Object.keys(DATA).forEach(k=>{const b=document.createElement('button');b.className='tab';b.textContent=k;b.onclick=()=>show(k);tabs.appendChild(b)});
+show("FPS");
+
+const Q=[
+ ["Какой у тебя FPS в Fortnite?",["Больше 144",0],["60–144",1],["Меньше 60",2]],
+ ["Бывают ли просадки и микрофризы?",["Нет",0],["Иногда",1],["Постоянно",2]],
+ ["Как ощущается управление?",["Мгновенно",0],["Есть лёгкая задержка",1],["Мышь «плывёт»",2]],
+ ["Когда последний раз настраивал систему?",["Недавно",0],["Давно",1],["Никогда",2]],
+ ["Хочешь выжать максимум для турниров?",["Не критично",0],["Было бы здорово",1],["Да, это цель",2]]
+];
+let i=0,score=0;const quiz=document.getElementById('quiz');
+function render(){
+ if(i>=Q.length){
+  const r=score<=3?["Всё неплохо","Система в порядке, но тонкая настройка всё равно может добавить FPS и снизить задержку."]:score<=7?["Есть потенциал","Заметный прирост FPS и плавности возможен — оптимизация будет полезна."]:["Нужна оптимизация","Система сильно недорабатывает. Оптимизация даст максимальный эффект."];
+  quiz.innerHTML=`<h3>${r[0]} (${score} из ${Q.length*2})</h3><p>${r[1]}</p><a class="btn" href="https://t.me/uncrownedking666" target="_blank" rel="noopener">Написать мне</a><button class="btn alt" onclick="i=0;score=0;render()">Пройти ещё раз</button>`;
+  return;
+ }
+ const q=Q[i];
+ quiz.innerHTML=`<div class="prog"><i style="width:${i/Q.length*100}%"></i></div><h3>${i+1}. ${q[0]}</h3>`;
+ q.slice(1).forEach(o=>{const b=document.createElement('button');b.className='opt';b.textContent=o[0];b.onclick=()=>{score+=o[1];i++;render()};quiz.appendChild(b)});
+}
+render();
+</script>
+</body>
+</html>
